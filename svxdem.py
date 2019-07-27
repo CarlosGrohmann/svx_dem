@@ -105,8 +105,11 @@ with open(options.outdem, 'w') as dem_svx:
     dem_svx.write('\n')
     dem_svx.write(';Surface data for Survex\n')
     dem_svx.write('\n')
-    dem_svx.write('*cs {}\n'.format(options.proj))
-    dem_svx.write('*cs out {}\n'.format(options.proj))
+
+    if options.proj:
+        dem_svx.write('*cs {}\n'.format(options.proj))
+        dem_svx.write('*cs out {}\n'.format(options.proj))
+
     dem_svx.write('\n')
     dem_svx.write('*begin {}\n'.format(outbasename))
 
